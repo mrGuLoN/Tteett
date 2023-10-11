@@ -3,16 +3,16 @@ using UnityEngine;
 public class DamageZone : MonoBehaviour
 {
     private AbstractHealth _heathController;
-    private Rigidbody _rb;
+    private int _intRigidbody;
 
-    public void SetHealthController(AbstractHealth healthcontroller)
+    public void SetHealthController(AbstractHealth healthcontroller, int intRigidbody)
     {
-        _rb = GetComponent<Rigidbody>();
         _heathController = healthcontroller;
+        _intRigidbody = intRigidbody;
     }
 
     public void Damage(float damage, Vector3 direction, Vector3 point)
     {
-        _heathController.Damage(damage, _rb, direction, point);
+        _heathController.Damage(damage, _intRigidbody, direction, point);
     }
 }
