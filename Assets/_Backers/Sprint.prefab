@@ -1279,7 +1279,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 25
   _particleSystem: {fileID: 8533246803695996530}
-  _damageForce: 2.5
+  _damageForce: 12.5
+  _rbs: []
+  _rigidbodyDatasTemp: []
   _damagePunch: {fileID: 3082592804983555959}
   _head: {fileID: 3993682704159813012}
   _aimPunch: 0.3
@@ -2513,17 +2515,17 @@ PrefabInstance:
     - target: {fileID: 7426615401609400904, guid: 906213eb127dc6941b1665a3cb57c76a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7426615401609400904, guid: 906213eb127dc6941b1665a3cb57c76a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7426615401609400904, guid: 906213eb127dc6941b1665a3cb57c76a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7426615401609400904, guid: 906213eb127dc6941b1665a3cb57c76a,
         type: 3}
@@ -2560,10 +2562,85 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7426615401609400905, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.082078606
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615401609400905, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.010146976
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615401609400905, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615401609400905, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.7735849
+      objectReference: {fileID: 0}
     - target: {fileID: 7426615401609400907, guid: 906213eb127dc6941b1665a3cb57c76a,
         type: 3}
       propertyPath: m_Name
       value: BloodParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615401609400907, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210598, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210598, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.082078606
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210598, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.010146976
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210598, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210598, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210598, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 47224
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210598, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210598, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210598, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426615402378210599, guid: 906213eb127dc6941b1665a3cb57c76a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
