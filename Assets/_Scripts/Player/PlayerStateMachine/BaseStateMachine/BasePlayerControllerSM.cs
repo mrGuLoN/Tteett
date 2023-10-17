@@ -5,7 +5,7 @@ namespace _Scripts.Player.BasePlayer.BaseStateMachine
 {
     public class BasePlayerControllerSm : BasePlayerStateMachine
     {
-        public CharacterController characterController => _characterController;
+        public CharacterController2D characterController => _characterController;
         public Animator animator => _animator;
         public Transform thisTransform => _thisTransform;
         public float nonGunSpeed => _nonGunSpeed;
@@ -18,7 +18,7 @@ namespace _Scripts.Player.BasePlayer.BaseStateMachine
         [HideInInspector] public  Camera camera;
 
 
-        [SerializeField] private CharacterController _characterController;
+        [SerializeField] private CharacterController2D _characterController;
         [SerializeField] private Animator _animator;
         [SerializeField] private Transform _thisTransform;
         [SerializeField] private float _nonGunSpeed, _gunSpeed;
@@ -27,7 +27,7 @@ namespace _Scripts.Player.BasePlayer.BaseStateMachine
 
         private void Start()
         {
-            EnemyManager.instanse.newPlayer.Invoke(transform);
+           // EnemyManager.instanse.newPlayer.Invoke(transform);
             nonGunState = new BaseNonGun(this);
             gunState = new BaseGunState(this);
             movementJoyStick = CanvasSingleTone.instance.movementJoyStick;

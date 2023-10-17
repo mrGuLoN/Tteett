@@ -40,10 +40,10 @@ namespace Enemy.StateMachine.States
                     target.position);
                 if (_distance <= _enemyControllerSm.loocDistance)
                 {
-                    _direction = (target.position + Vector3.up) -
-                                 (_enemyControllerSm.thisTransform.position + Vector3.up);
-                    _enemyControllerSm.thisTransform.forward =  -1*_direction.normalized;
-                    if (!Physics.Raycast(_enemyControllerSm.thisTransform.position + Vector3.up, _direction, _distance,
+                    _direction = target.position  -
+                                 _enemyControllerSm.thisTransform.position;
+                    _enemyControllerSm.thisTransform.up =  _direction.normalized;
+                    if (!Physics2D.Raycast(_enemyControllerSm.thisTransform.position, _direction, _distance,
                             _enemyControllerSm.layerWall))
                     {
                         _enemyControllerSm.target = target;

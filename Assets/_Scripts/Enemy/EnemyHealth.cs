@@ -7,7 +7,8 @@ public class EnemyHealth : AbstractHealth
     [SerializeField] private Transform _head;
     [SerializeField] private float _aimPunch;
     [SerializeField] private SkinnedMeshRenderer _skinnedMeshRenderer;
-    [SerializeField] private CharacterController _characterController;
+    [SerializeField] private CharacterController2D _characterController;
+    [SerializeField] private Collider2D _collider2D;
 
     public override void Damage(float damage, int rigidbody, Vector3 direction, Vector3 point)
     {
@@ -18,6 +19,7 @@ public class EnemyHealth : AbstractHealth
 
     public override void Dead(float damage, int rigidbody, Vector3 direction)
     {
+        _collider2D.enabled = false;
         _characterController.enabled = false;
         EnemyManager.instanse.deadEnemy.Invoke(GetComponent<EnemyStateMachineController>());
         _skinnedMeshRenderer.materials[0].SetColor("_FlatRimColor", Color.black);

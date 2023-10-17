@@ -33,14 +33,14 @@ namespace Enemy.StateMachine.States
 
         public override void UpdatePhysics()
         {
-            _direction = (_enemyControllerSm.target.position + Vector3.up) -
-                         (_enemyControllerSm.thisTransform.position + Vector3.up);
+            _direction = _enemyControllerSm.target.position  -
+                         _enemyControllerSm.thisTransform.position;
             _distance = Vector3.Distance(_enemyControllerSm.thisTransform.position,
                 _enemyControllerSm.target.position);
-            if (Physics.Raycast(_enemyControllerSm.thisTransform.position + Vector3.up, _direction,_distance,
+            if (Physics2D.Raycast(_enemyControllerSm.thisTransform.position, _direction,_distance,
                     _enemyControllerSm.layerWall))
             {
-                _enemyControllerSm.thisTransform.forward =  new Vector3(_direction.x,0, _direction.z).normalized;
+                _enemyControllerSm.thisTransform.up =  _direction.normalized;
                 _enemyControllerSm.target = null;
                 _enemyControllerSm.endPosition = _enemyControllerSm.thisTransform.position;
                 _enemyControllerSm.ChangeState(_enemyControllerSm.enemyFindObject);
@@ -49,14 +49,14 @@ namespace Enemy.StateMachine.States
             if (_distance <= _enemyControllerSm.attackDistance)
             {
                 _enemyControllerSm.animator.SetBool("Hit", true);
-                _enemyControllerSm.thisTransform.forward =  -1*new Vector3(_direction.x,0, _direction.z).normalized;
+                _enemyControllerSm.thisTransform.up =  _direction.normalized;
             }
             else
             {
                 _enemyControllerSm.animator.SetBool("Hit", false);
                 _enemyControllerSm.animator.SetBool("Fight", false);
-                _enemyControllerSm.thisTransform.forward =  -1*new Vector3(_direction.x,0, _direction.z).normalized;
-                _enemyControllerSm.characterController.Move(_direction.normalized * (_enemyControllerSm.currentSpeed * Time.deltaTime)+Vector3.down);
+                _enemyControllerSm.thisTransform.up = _direction.normalized;
+                _enemyControllerSm.characterController.Move(_direction.normalized * (_enemyControllerSm.currentSpeed * Time.deltaTime));
             }
         }
     }

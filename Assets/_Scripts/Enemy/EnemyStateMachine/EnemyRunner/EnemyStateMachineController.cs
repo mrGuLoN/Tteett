@@ -10,7 +10,7 @@ public class EnemyStateMachineController : BaseEnemyStateMachine
     public float runSpeed => _runSpeed;
     public float currentSpeed => _currentSpeed;
     public Transform thisTransform => _thisTransform;
-    public CharacterController characterController => _characterController;
+    public CharacterController2D characterController => _characterController;
     public Transform target;
     public AbstractHealth targetHealthController;
     public Vector3 endPosition;
@@ -26,7 +26,7 @@ public class EnemyStateMachineController : BaseEnemyStateMachine
     [SerializeField] protected float _damage;
     [SerializeField] private Transform _thisTransform;
     [SerializeField] protected LayerMask _layerWall;
-    [SerializeField] private CharacterController _characterController;
+    [SerializeField] private CharacterController2D _characterController;
     private bool _dead;
 
     public virtual void  Start()

@@ -10,10 +10,11 @@ public class CanvasSingleTone : MonoBehaviour
     public Joystick movementJoyStick => _movementJoyStick;
     public Joystick fireJoyStick => _fireJoyStick;
 
-    [SerializeField]private Joystick _movementJoyStick, _fireJoyStick;
+    [SerializeField] private Joystick _movementJoyStick, _fireJoyStick;
+    [SerializeField] private Transform _cameraTransform;
 
-    private Transform _target, _cameraTransform;
-    private float _distance;
+    [SerializeField] private Transform _target;
+    private Vector3 _distance;
     void Awake()
     { 
         if (instance == null)
@@ -28,22 +29,19 @@ public class CanvasSingleTone : MonoBehaviour
 
     void Start()
     {
-        
+        SetTarget();
     }
 
-    public void SetTarget(Transform target)
+    public void SetTarget()
     {
-        _target = target;
-        _cameraTransform = Camera.main.transform;
-        _distance = _cameraTransform.position.y - _target.transform.position.y;
+        _distance = _cameraTransform.position - _target.transform.position;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if (_target != null)
-        {
-            _cameraTransform.position = _target.position + Vector3.up * _distance;
-        }
+      
+            _cameraTransform.position = _target.position + _distance;
+       
     }
 }

@@ -3,6 +3,7 @@ Shader "Unlit/Projector"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color("Color",Color) = (0.85023, 0.85034, 0.85045, 0.85056)
     }
     SubShader
     {
@@ -34,6 +35,7 @@ Shader "Unlit/Projector"
             };
 
             sampler2D _MainTex;
+            float4 _Color;
             float4 _MainTex_ST;
             float4x4 unity_Projector;
             float4x4 unity_ProjectorClip;
@@ -52,7 +54,7 @@ Shader "Unlit/Projector"
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, (i.uv.xy*_MainTex_ST.xy+_MainTex_ST.zw)/i.uv.w);
+                fixed4 col = _Color*tex2D(_MainTex, (i.uv.xy*_MainTex_ST.xy+_MainTex_ST.zw)/i.uv.w);
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 col.a*=1-i.uv.z;

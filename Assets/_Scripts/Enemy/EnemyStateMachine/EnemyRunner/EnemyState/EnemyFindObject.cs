@@ -30,8 +30,8 @@ namespace Enemy.StateMachine.States
         public override void UpdateMovement(Transform target)
         {
             _direction = (_enemyControllerSm.endPosition - _enemyControllerSm.thisTransform.position).normalized;
-            _enemyControllerSm.thisTransform.forward = -1*new Vector3(_direction.x,0, _direction.z);
-            _enemyControllerSm.characterController.Move(_direction * _enemyControllerSm.currentSpeed * Time.deltaTime+Vector3.down);
+            _enemyControllerSm.thisTransform.up = -1*new Vector3(_direction.x,_direction.y,0);
+            _enemyControllerSm.characterController.Move(_direction * _enemyControllerSm.currentSpeed * Time.deltaTime);
             _distance = Vector3.Distance(_enemyControllerSm.thisTransform.position, _enemyControllerSm.endPosition);
            
             if (_distance <= 1f)
@@ -45,10 +45,10 @@ namespace Enemy.StateMachine.States
                     target.position);
                 if (_distanceCheck <= _enemyControllerSm.loocDistance)
                 {
-                    _directionCheck = (target.position + Vector3.up) -
-                                      (_enemyControllerSm.thisTransform.position + Vector3.up);
-                    _enemyControllerSm.thisTransform.forward =  -1*new Vector3(_directionCheck.x,0, _directionCheck.z).normalized;
-                    if (!Physics.Raycast(_enemyControllerSm.thisTransform.position + Vector3.up, _directionCheck, _distanceCheck,
+                    _directionCheck = (target.position) -
+                                      (_enemyControllerSm.thisTransform.position);
+                    _enemyControllerSm.thisTransform.up =  _directionCheck.normalized;
+                    if (!Physics2D.Raycast(_enemyControllerSm.thisTransform.position, _directionCheck, _distanceCheck,
                             _enemyControllerSm.layerWall))
                     {
                         _enemyControllerSm.target =target;

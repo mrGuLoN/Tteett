@@ -56,7 +56,7 @@ public class LaboratoryGenerator : MonoBehaviour
                 selectedExit = selectedPrefab.Exits[Random.Range(0, selectedPrefab.Exits.Length)].transform;
 
                 // rotation
-                float shiftAngle = createdExit.eulerAngles.y + 180 - selectedExit.eulerAngles.y;
+                float shiftAngle = createdExit.eulerAngles.z + 180 - selectedExit.eulerAngles.z;
                 selectedPrefab.transform.Rotate(new Vector3(0, shiftAngle, 0)); // выходы повернуты друг напротив друга
 
                 // position

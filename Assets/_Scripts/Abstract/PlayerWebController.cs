@@ -16,6 +16,6 @@ public class PlayerWebController : MonoBehaviour
         var inst = Instantiate(_prefab);
         inst.fireJoyStick = CanvasSingleTone.instance.fireJoyStick;
         inst.movementJoyStick = CanvasSingleTone.instance.movementJoyStick;
-        CanvasSingleTone.instance.SetTarget(inst.transform);
+       
     }
 }
