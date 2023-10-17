@@ -16,6 +16,7 @@ public class AbstractHealth : MonoBehaviour
     protected Animator _animator;
     protected Transform _particleTransform;
     private Transform[] _goChild;
+    private bool _dead;
 
     private List<CharacterJoint> _characterJointsTemp = new();
 
@@ -73,8 +74,9 @@ public class AbstractHealth : MonoBehaviour
         {
             _animator.SetTrigger("Damage");
         }
-        else
+        else if (!_dead)
         {
+            _dead = true;
             Dead(damage, rigidbody, direction);
         }
     }
@@ -91,8 +93,9 @@ public class AbstractHealth : MonoBehaviour
     {
         for(int i=0; i< _rigidbodyDatasTemp.Count;i++)
         {
-            Rigidbody rigid = _rigidbodyDatasTemp[i].transformRB.gameObject.AddComponent<Rigidbody>();
-            Debug.Log(_rigidbodyDatasTemp[i].transformRB + i.ToString());
+            
+            if (!TryGetComponent<Rigidbody>(out var rigid))
+                rigid = _rigidbodyDatasTemp[i].transformRB.gameObject.AddComponent<Rigidbody>();
             _rigidbodyDatasTemp[i].rigidbodyData.rigidBody = rigid;
             rigid.mass = _rigidbodyDatasTemp[i].rigidbodyData.mass;
             rigid.angularDrag = _rigidbodyDatasTemp[i].rigidbodyData.angularDrag;

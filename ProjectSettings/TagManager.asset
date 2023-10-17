@@ -11,10 +11,10 @@ TagManager:
   - Blood
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Stage
+  - NavigationZone
+  - CharacterController
+  - DamageZone
   - 
   - 
   - 
