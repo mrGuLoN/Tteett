@@ -8,7 +8,7 @@ public class PlayerWebController : MonoBehaviour
 
     private void Start()
     {
-        LaboratoryGenerator.Instance.Done.AddListener(StartGame);
+        StartGame();
     }
 
     private void StartGame()
