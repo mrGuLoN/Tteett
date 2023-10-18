@@ -2416,8 +2416,8 @@ SkinnedMeshRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
@@ -2608,7 +2608,7 @@ PrefabInstance:
     - target: {fileID: 7426615401609400905, guid: 906213eb127dc6941b1665a3cb57c76a,
         type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 128
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 7426615401609400905, guid: 906213eb127dc6941b1665a3cb57c76a,
         type: 3}

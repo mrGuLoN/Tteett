@@ -20,7 +20,7 @@ Material:
   - _FLAT_SPECULAR_ENABLED
   - _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -89,7 +89,7 @@ Material:
     - _FlatRimAmount: 0.5
     - _FlatRimEdgeSmoothness: 0.047
     - _FlatRimEnabled: 1
-    - _FlatRimLightAlign: 0.403
+    - _FlatRimLightAlign: 1
     - _FlatRimSize: 0.481
     - _FlatShadowsEnabled: 1
     - _FlatSmoothness: 0.362

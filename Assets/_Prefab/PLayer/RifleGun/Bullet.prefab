@@ -49,7 +49,7 @@ MonoBehaviour:
   _damage: 5
   _layerMask:
     serializedVersion: 2
-    m_Bits: 656
+    m_Bits: 1664
 --- !u!1 &8160234815780465440
 GameObject:
   m_ObjectHideFlags: 0
