@@ -1,8 +1,9 @@
 
 
+using Mirror;
 using UnityEngine;
 
-public class BasePlayerStateMachine : MonoBehaviour
+public class BasePlayerStateMachine : NetworkBehaviour
 {
     private BasePlayerState _currentState;
     private void Start()
@@ -11,7 +12,7 @@ public class BasePlayerStateMachine : MonoBehaviour
         if (_currentState != null) _currentState.Enter();
     }
       
-    private void Update()
+    public void UpdateSM()
     {
         if (_currentState != null)
         {
@@ -19,7 +20,7 @@ public class BasePlayerStateMachine : MonoBehaviour
         }
     } 
         
-    private void LateUpdate()
+    public void LateUpdateSM()
     {
         if (_currentState != null)
         {
@@ -27,7 +28,7 @@ public class BasePlayerStateMachine : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    public void FixedUpdateSM()
     {
         if (_currentState != null)
         {

@@ -27,7 +27,6 @@ namespace _Scripts.Player.BasePlayer.BaseStateMachine
 
         private void Start()
         {
-           // EnemyManager.instanse.newPlayer.Invoke(transform);
             nonGunState = new BaseNonGun(this);
             gunState = new BaseGunState(this);
             movementJoyStick = CanvasSingleTone.instance.movementJoyStick;

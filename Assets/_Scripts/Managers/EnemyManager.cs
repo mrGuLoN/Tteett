@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : NetworkBehaviour
 {
     public static EnemyManager instanse;
     public UnityEvent<Transform> newPlayer;

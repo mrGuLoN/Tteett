@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
+using Mirror;
 
 namespace Underground_Laboratory_Generator.Scripts
 {
-    public class LaboratoryGenerator : MonoBehaviour
+    public class LaboratoryGenerator : NetworkBehaviour
     {
         public UnityEvent done;
         [SerializeField] private bool generateOnStart = true;
@@ -30,11 +31,11 @@ namespace Underground_Laboratory_Generator.Scripts
             if (generateOnStart) StartCoroutine(StartGeneration());
         }
 
-        IEnumerator StartGeneration()
+       public IEnumerator StartGeneration()
         {
             List<Transform> createdExits = new List<Transform>();
             Cell startRoom = Instantiate(cellPrefabs[Random.Range(0, cellPrefabs.Length)], Vector3.zero, Quaternion.identity) ?? throw new ArgumentNullException(nameof(Instantiate) + "(cellPrefabs[Random.Range(0, cellPrefabs.Length)], Vector3.zero, Quaternion.identity)");
-       
+            NetworkServer.Spawn(startRoom.gameObject);
             for (int i = 0; i < startRoom.Exits.Length; i++) createdExits.Add(startRoom.Exits[i].transform);
             startRoom.TriggerBox.enabled = true;
 
@@ -44,7 +45,8 @@ namespace Underground_Laboratory_Generator.Scripts
                 limit--;
 
                 Cell selectedPrefab = Instantiate(cellPrefabs[Random.Range(0, cellPrefabs.Length)], Vector3.zero, Quaternion.identity);
-          
+                NetworkServer.Spawn(selectedPrefab.gameObject);
+                
                 int lim = 100;
                 bool collided;
                 Transform selectedExit;
@@ -95,7 +97,8 @@ namespace Underground_Laboratory_Generator.Scripts
                     createdExits.Remove(selectedExit);
 
                     Transform exitTransform;
-                    Instantiate(doorPrefabs[Random.Range(0, doorPrefabs.Length)], (exitTransform = createdExit.transform).position, exitTransform.rotation);
+                    var door = Instantiate(doorPrefabs[Random.Range(0, doorPrefabs.Length)], (exitTransform = createdExit.transform).position, exitTransform.rotation);
+                    NetworkServer.Spawn(door.gameObject);
                     DestroyImmediate(createdExit.gameObject);
                     DestroyImmediate(selectedExit.gameObject);
                 }
@@ -107,7 +110,8 @@ namespace Underground_Laboratory_Generator.Scripts
             // instead doors
             for (int i = 0; i < createdExits.Count; i++)
             {
-                Instantiate(insteadDoor, createdExits[i].position, createdExits[i].rotation);
+                var door = Instantiate(insteadDoor, createdExits[i].position, createdExits[i].rotation);
+                NetworkServer.Spawn(door.gameObject);
                 DestroyImmediate(createdExits[i].gameObject);
             }
 
