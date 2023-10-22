@@ -183,13 +183,13 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   - m_Name: Fire
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
@@ -207,7 +207,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Fireanimation
     m_StateMachine: {fileID: 5021273572797682715}
-    m_Mask: {fileID: 101100000, guid: aee2a250e1bee10409d88b75d5d91304, type: 2}
+    m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
